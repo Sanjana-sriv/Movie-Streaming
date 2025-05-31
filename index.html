@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Movie App</title>
+  </head>
+  <body class="dark-mode">
+    <header>
+        
+      <form id="form">
+        <input type="text" id="search" class="search" placeholder="Search">
+        <select id="genreSelect" class="genre-select">
+        <option value="">All Genres</option>
+  </select>
+      </form>
+      <button id="theme-toggle" class="toggle-theme">Dark Mode</button>
+
+    </header>
+
+    <main id="main"></main>
+    <script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  function updateButtonLabel() {
+    toggleBtn.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    updateButtonLabel();
+  });
+
+  // Set correct label on page load
+  window.addEventListener('DOMContentLoaded', updateButtonLabel);
+</script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
