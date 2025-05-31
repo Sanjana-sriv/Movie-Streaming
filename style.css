@@ -1,0 +1,242 @@
+:root {
+  --wood-bark: #302620;
+  --cloudy: #B9AB99;
+  --pine-cone: #775F4E;
+  --heathered-grey: #948C7A;
+  --caput-mortuum: #612A22;
+
+  --primary-color: var(--caput-mortuum);
+  --secondary-color: var(--pine-cone);
+  --text-color: var(--cloudy);
+  --background-color: var(--wood-bark);
+  --highlight: var(--heathered-grey);
+}
+
+
+/* 🌓 DARK MODE BASE */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/mnt/data/553096fa-fe8b-4a75-a486-21a8370a92d6.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  backdrop-filter: brightness(0.75);
+}
+
+/* 🌟 HEADER */
+header {
+  background-color: var(--caput-mortuum);
+  color: var(--cloudy);
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+.toggle-theme {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: var(--highlight);
+  color: var(--cloudy);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.toggle-theme:hover {
+  background-color: var(--pine-cone);
+}
+
+/* 🔎 SEARCH + GENRE */
+form {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: var(--pine-cone);
+}
+
+.search, .genre-select {
+  background-color: var(--cloudy);
+  color: var(--wood-bark);
+  border: 2px solid var(--heathered-grey);
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.genre-select:hover, .search:hover {
+  background-color: var(--highlight);
+  color: var(--wood-bark);
+  cursor: pointer;
+}
+
+.genre-select:focus, .search:focus {
+  outline: none;
+  border-color: var(--caput-mortuum);
+}
+
+/* 🎬 MOVIES GRID */
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns on large screens */
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.movie {
+  position: relative;
+  background-color: var(--pine-cone);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  color: var(--cloudy);
+  transition: transform 0.2s ease;
+}
+
+.movie:hover {
+  transform: scale(1.03);
+}
+
+.movie img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 2px solid var(--highlight);
+}
+
+.overview {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 100%;
+  background-color: rgba(48, 38, 32, 0.9); /* wood-bark translucent */
+  color: var(--cloudy);
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  font-size: 0.9rem;
+  overflow-y: auto;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.movie:hover .overview {
+  transform: translateY(0%);
+}
+
+.movie-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.movie-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.movie-info span {
+  background-color: var(--caput-mortuum);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+
+/* 🟢 RATING COLORS */
+.green {
+  color: #4CAF50;
+}
+.orange {
+  color: #FF9800;
+}
+.red {
+  color: #F44336;
+}
+
+/* 🎥 MODAL */
+.movie-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(48, 38, 32, 0.9); /* Wood Bark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: var(--pine-cone);
+  color: var(--cloudy);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--highlight);
+}
+/* 🌞 LIGHT MODE OVERRIDE */
+/* 🌞 LIGHT MODE OVERRIDE */
+body:not(.dark-mode) {
+  --wood-bark: #99908a;
+  --cloudy: #E7DED2;
+  --pine-cone: #C9B8A9;
+  --heathered-grey: #c39977e0;
+  --caput-mortuum: #C37A71;
+
+  --primary-color: var(--caput-mortuum);
+  --secondary-color: var(--pine-cone);
+  --text-color: var(--wood-bark);
+  --background-color: var(--cloudy);
+  --highlight: var(--heathered-grey);
+
+  background-image: none;
+  backdrop-filter: none;
+}
+
+a {
+  color: var(--wood-bark);
+  font-weight: bold;
+  text-decoration: none;
+}
+
