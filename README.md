@@ -67,3 +67,12 @@ Clicking a movie opens a detailed modal with:
 ├── script.js           # JavaScript logic and API interactions
 ├── assets/             # (Optional) Images or static assets
 └── README.md           # Project documentation
+```
+
+## 🚀 How to Run
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/Sanjana-sriv/Movie-Streaming.git
+   cd Movie-Streaming
