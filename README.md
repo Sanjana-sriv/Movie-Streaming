@@ -34,7 +34,6 @@ Clicking a movie opens a detailed modal with:
 - 🎭 Top cast (first 5)
 - 💰 Budget and revenue
 - 🌐 IMDb rating + link
-- 🍅 Rotten Tomatoes: Currently `N/A` (not in TMDb API)
 - 📺 Trailer embed (YouTube)
 - 📡 Streaming platforms (based on region, e.g., US)
 
